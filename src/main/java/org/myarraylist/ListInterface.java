@@ -6,6 +6,6 @@ public interface ListInterface<T> extends Iterable<T>{
     void remove(int index);
     T get(int index);
     boolean addAll(int index, MyArrayList t);
-    void sort();
+
     int size();
 }

@@ -18,4 +18,5 @@ public class MyArrayListIterator <T> implements Iterator {
     public boolean hasNext(){
         return index < values.length;
     }
+
 }

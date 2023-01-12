@@ -1,11 +1,14 @@
 package org.myarraylist;
 
-import java.util.Collection;
 import java.util.Iterator;
 
 public class MyArrayList<T> implements ListInterface<T>{
 
     private T[] values;
+
+    public void set(int index, T data) {
+        values[index] = data;
+    }
 
     public T[] getValues() {
         return values;
@@ -57,7 +60,6 @@ public class MyArrayList<T> implements ListInterface<T>{
             values = (T[]) new Object[buffer.length+ buffer2.length];
             System.arraycopy(buffer,0, values, 0, buffer.length);
             System.arraycopy(buffer2,0, values, buffer.length, buffer2.length);
-//            values[values.length - buffer2.length] = (T) t;
             return true;
         } catch (ClassCastException exception){
             exception.printStackTrace();
@@ -66,16 +68,29 @@ public class MyArrayList<T> implements ListInterface<T>{
     }
 
     @Override
-    public void sort() {
-
-    }
-
-    @Override
     public int size() {
         int size = 0;
         if(values != null) return size = values.length;
         return size;
     }
+
+//    public void bubbleSort(){
+//        if( this instanceof Comparable<?> ) {
+//            T buffer;
+//            boolean sorted = false;
+//            while (!sorted) {
+//                for (int i = 0; i < this.size() - 1; i++) {
+//                    if (values[i].compareTo(values[i+1]) > 0) {
+//                        buffer = values[i];
+//                        values[i] = values[i + 1];
+//                        values[i + 1] = buffer;
+//                        sorted = false;
+//                    }
+//
+//                }
+//            }
+//        }
+//    }
 
     @Override
     public Iterator<T> iterator() {
